@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
+node_js:
+  - '10'
+  - '8'
+  - '6'
+script:
+  - npm run coverage
+after_success:
+  - test `node --version | cut -c 2` -eq 8 && npm run coveralls
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

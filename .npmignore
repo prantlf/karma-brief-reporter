@@ -1,0 +1,9 @@
+.git
+.gitignore
+.editorconfig
+.idea
+.npmignore
+.vscode
+coverage
+node_modules
+npm-debug.log
