@@ -1,2 +1,10 @@
+// Place your settings in this file to overwrite default and user settings.
 {
+  "files.exclude": {
+    "**/.git": true,
+    "**/.idea": true,
+    "**/.vscode": true,
+    "coverage/**": true,
+    "node_modules/**": true
+  }
 }
