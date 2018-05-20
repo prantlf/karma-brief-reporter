@@ -1,9 +1,9 @@
 'use strict'
 
-const Summary = require('./lib/summary')
+const Brief = require('./lib/brief')
 
-Summary.$inject = ['baseReporterDecorator', 'formatError', 'config']
+Brief.$inject = ['baseReporterDecorator', 'formatError', 'config']
 
 module.exports = {
-  'reporter:summary': ['type', Summary]
+  'reporter:brief': ['type', Brief]
 }

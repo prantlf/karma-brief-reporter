@@ -1,12 +1,12 @@
-[![npm version](https://badge.fury.io/js/karma-summary-reporter.svg)](http://badge.fury.io/js/karma-summary-reporter)
-[![Build Status](https://travis-ci.org/dgarlitt/karma-summary-reporter.svg)](https://travis-ci.org/dgarlitt/karma-summary-reporter)
-[![Coverage Status](https://coveralls.io/repos/dgarlitt/karma-summary-reporter/badge.svg?branch=master)](https://coveralls.io/r/dgarlitt/karma-summary-reporter?branch=master)
-[![Dependency Status](https://david-dm.org/dgarlitt/karma-summary-reporter.svg)](https://david-dm.org/dgarlitt/karma-summary-reporter)
+[![npm version](https://badge.fury.io/js/karma-brief-reporter.svg)](http://badge.fury.io/js/karma-brief-reporter)
+[![Build Status](https://travis-ci.org/dgarlitt/karma-brief-reporter.svg)](https://travis-ci.org/dgarlitt/karma-brief-reporter)
+[![Coverage Status](https://coveralls.io/repos/dgarlitt/karma-brief-reporter/badge.svg?branch=master)](https://coveralls.io/r/dgarlitt/karma-brief-reporter?branch=master)
+[![Dependency Status](https://david-dm.org/dgarlitt/karma-brief-reporter.svg)](https://david-dm.org/dgarlitt/karma-brief-reporter)
 
-karma-summary-reporter
-======================
+karma-brief-reporter
+====================
 
-The summary reporter originated with a similar idea behind the [Nyan Cat reporter] - do not print information about every successful test or failing test immediately, like the [Mocha reporter] does it. Print only test count statistics during the test run and summary about failing tests at the end. Unlike the Nyan Cat reporter, this reporter prints the progress statistics on one line only. It takes less space and if the terminal application prevents moving the cursor up, the screen is not covered by garbage.
+The brief reporter originated with a similar idea behind the [Nyan Cat reporter] - do not print information about every successful test or failing test immediately, like the [Mocha reporter] does it. Print only test count statistics during the test run and summary about failing tests at the end. Unlike the Nyan Cat reporter, this reporter prints the progress statistics on one line only. It takes less space and if the terminal application prevents moving the cursor up, the screen is not covered by garbage.
 
 Examples
 --------
@@ -51,7 +51,7 @@ Installation
 Installation is simple using npm, just run the following command:
 
 ```sh
-npm install --save-dev karma-summary-reporter
+npm install --save-dev karma-brief-reporter
 ```
 
 Since this follows Karma's plugin naming convention, that's all there is to it!
@@ -59,7 +59,7 @@ Since this follows Karma's plugin naming convention, that's all there is to it!
 Now, run your tests and enjoy:
 
 ```sh
-karma start path/to/karma.conf.js --reporters summary
+karma start path/to/karma.conf.js --reporters brief
 ```
 
 Options
@@ -72,10 +72,10 @@ If you want to suppress various output parts, flip the corresponding `suppress*`
 module.exports = function(config) {
   config.set({
     // Choose the reporter
-    reporters: ['summary'],
+    reporters: ['brief'],
 
     // Reporter options
-    summaryReporter: {
+    briefReporter: {
       // Suppress the error report at the end of the test run.
       suppressErrorReport: true, // default is false
 

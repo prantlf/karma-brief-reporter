@@ -14,9 +14,9 @@ var assert = chai.assert
 var eq = assert.equal
 var ok = assert.ok
 
-describe('summary.js test suite', function () {
-  var summary
-  var Summary
+describe('brief.js test suite', function () {
+  var brief
+  var Brief
   var configFake
   var formatterFake
   var storeInstanceFake
@@ -68,16 +68,16 @@ describe('summary.js test suite', function () {
       'options'
     ]
 
-    Summary = rewire('../lib/summary')
-    Summary.__set__('store', storeFake)
-    Summary.__set__('types', typesFake)
-    Summary.__set__('printers', printersFake)
-    Summary.__set__('shell', shellFake)
+    Brief = rewire('../lib/brief')
+    Brief.__set__('store', storeFake)
+    Brief.__set__('types', typesFake)
+    Brief.__set__('printers', printersFake)
+    Brief.__set__('shell', shellFake)
   })
 
   afterEach(function () {
-    summary = null
-    Summary = null
+    brief = null
+    Brief = null
     configFake = null
     formatterFake = null
     storeInstanceFake = null
@@ -90,20 +90,20 @@ describe('summary.js test suite', function () {
 
   describe('test constructor', function () {
     it('should have expected default properties', function () {
-      summary = new Summary(null, formatterFake, configFake)
+      brief = new Brief(null, formatterFake, configFake)
 
-      expect(summary).to.contain.keys(defaultPropertyKeys)
-      expect(summary.options).to.be.an('object')
-      expect(summary.options.suppressBrowserLogs).to.be.false
-      expect(summary.options.suppressErrorReport).to.be.false
-      expect(summary.options.suppressErrorHighlighting).to.be.false
-      expect(summary.options.renderOnRunCompleteOnly).to.be.false
+      expect(brief).to.contain.keys(defaultPropertyKeys)
+      expect(brief.options).to.be.an('object')
+      expect(brief.options.suppressBrowserLogs).to.be.false
+      expect(brief.options.suppressErrorReport).to.be.false
+      expect(brief.options.suppressErrorHighlighting).to.be.false
+      expect(brief.options.renderOnRunCompleteOnly).to.be.false
       expect(typesFake.setErrorFormatterMethod.calledOnce).to.be.true
       expect(typesFake.setErrorFormatterMethod.calledWithExactly(formatterFake)).to.be.true
     })
 
     it('should set options when passed in via config', function () {
-      configFake.summaryReporter = {
+      configFake.briefReporter = {
         'suppressBrowserLogs': true,
         'suppressErrorReport': true,
         'suppressErrorHighlighting': true,
@@ -111,21 +111,21 @@ describe('summary.js test suite', function () {
         'someOtherOption': 1234
       }
 
-      summary = new Summary(null, formatterFake, configFake)
+      brief = new Brief(null, formatterFake, configFake)
 
-      expect(summary.options.suppressBrowserLogs).to.be.true
-      expect(summary.options.suppressErrorReport).to.be.true
-      expect(summary.options.suppressErrorHighlighting).to.be.true
-      expect(summary.options.renderOnRunCompleteOnly).to.be.true
-      expect(summary.options.someOtherOption).to.be.undefined
+      expect(brief.options.suppressBrowserLogs).to.be.true
+      expect(brief.options.suppressErrorReport).to.be.true
+      expect(brief.options.suppressErrorHighlighting).to.be.true
+      expect(brief.options.renderOnRunCompleteOnly).to.be.true
+      expect(brief.options.someOtherOption).to.be.undefined
     })
 
     it('should suppressErrorHighlighting if option is set in config', function () {
-      configFake.summaryReporter = {
+      configFake.briefReporter = {
         'suppressErrorHighlighting': true
       }
 
-      summary = new Summary(null, null, configFake)
+      brief = new Brief(null, null, configFake)
 
       expect(typesFake.suppressErrorHighlighting.calledOnce).to.be.true
     })
@@ -135,7 +135,7 @@ describe('summary.js test suite', function () {
     var props
 
     beforeEach(function () {
-      summary = new Summary(null, null, configFake)
+      brief = new Brief(null, null, configFake)
 
       props = {
         'browsers': [],
@@ -151,21 +151,21 @@ describe('summary.js test suite', function () {
     })
 
     it('should not have these properties before reset is called', function () {
-      expect(summary).to.not.have.keys(Object.keys(props))
+      expect(brief).to.not.have.keys(Object.keys(props))
     })
 
     it('should have the expected properties/values afterEach reset is called', function () {
-      summary.reset()
+      brief.reset()
 
-      expect(summary).to.have.keys(Object.keys(props).concat(defaultPropertyKeys))
+      expect(brief).to.have.keys(Object.keys(props).concat(defaultPropertyKeys))
 
       for (var key in props) {
-        expect(summary[key]).to.eql(props[key])
+        expect(brief[key]).to.eql(props[key])
       }
     })
 
     it('should call storeFake.getInstance()', function () {
-      summary.reset()
+      brief.reset()
       expect(storeFake.getInstance.calledOnce).to.be.true
     })
   })
@@ -174,9 +174,9 @@ describe('summary.js test suite', function () {
     var resetSpy
 
     beforeEach(function () {
-      resetSpy = sinon.spy(Summary.prototype, 'reset')
+      resetSpy = sinon.spy(Brief.prototype, 'reset')
 
-      summary = new Summary(null, null, configFake)
+      brief = new Brief(null, null, configFake)
     })
 
     afterEach(function () {
@@ -184,7 +184,7 @@ describe('summary.js test suite', function () {
     })
 
     it('should call the expected methods', function () {
-      summary.onRunStart()
+      brief.onRunStart()
 
       expect(shellFake.cursor.hide.calledOnce).to.be.true
       expect(resetSpy.calledOnce).to.be.true
@@ -213,8 +213,8 @@ describe('summary.js test suite', function () {
       log1 = 'log message 1'
       log2 = 'log message 2'
 
-      summary = new Summary(null, null, configFake)
-      summary.browserLogs = {
+      brief = new Brief(null, null, configFake)
+      brief.browserLogs = {
         'fakeBrowserId1': {
           name: 'fakeBrowserName1',
           messages: []
@@ -234,20 +234,20 @@ describe('summary.js test suite', function () {
     })
 
     it('should add an entry to the browserLogs property', function () {
-      summary.onBrowserLog(browser1, log1, null)
+      brief.onBrowserLog(browser1, log1, null)
 
-      expect(summary.browserLogs[browser1.id]).to.be.an('object')
-      expect(summary.browserLogs[browser1.id].name).to.eq(browser1.name)
-      expect(summary.browserLogs[browser1.id].messages).to.be.an('array')
-      expect(summary.browserLogs[browser1.id].messages.length).to.eq(1)
-      expect(summary.browserLogs[browser1.id].messages[0]).to.eq(log1)
+      expect(brief.browserLogs[browser1.id]).to.be.an('object')
+      expect(brief.browserLogs[browser1.id].name).to.eq(browser1.name)
+      expect(brief.browserLogs[browser1.id].messages).to.be.an('array')
+      expect(brief.browserLogs[browser1.id].messages.length).to.eq(1)
+      expect(brief.browserLogs[browser1.id].messages[0]).to.eq(log1)
     })
 
     it('should add a new entry to messages if the browser.id exists', function () {
-      summary.onBrowserLog(browser1, log1, null)
-      summary.onBrowserLog(browser1, log2, null)
+      brief.onBrowserLog(browser1, log1, null)
+      brief.onBrowserLog(browser1, log2, null)
 
-      var logs = summary.browserLogs[browser1.id].messages
+      var logs = brief.browserLogs[browser1.id].messages
 
       expect(logs.length).to.eq(2)
       expect(logs[0]).to.eq(log1)
@@ -255,11 +255,11 @@ describe('summary.js test suite', function () {
     })
 
     it('should add a separate browser_log entry for each browser id', function () {
-      summary.onBrowserLog(browser1, log1, null)
-      summary.onBrowserLog(browser2, log2, null)
+      brief.onBrowserLog(browser1, log1, null)
+      brief.onBrowserLog(browser2, log2, null)
 
-      var logs1 = summary.browserLogs[browser1.id].messages
-      var logs2 = summary.browserLogs[browser2.id].messages
+      var logs1 = brief.browserLogs[browser1.id].messages
+      var logs2 = brief.browserLogs[browser2.id].messages
 
       expect(logs1.length).to.eq(1)
       expect(logs2.length).to.eq(1)
@@ -279,9 +279,9 @@ describe('summary.js test suite', function () {
 
       result = {}
 
-      summary = new Summary(null, null, configFake)
-      summary.browsers = []
-      summary.store = storeInstanceFake
+      brief = new Brief(null, null, configFake)
+      brief.browsers = []
+      brief.store = storeInstanceFake
     })
 
     afterEach(function () {
@@ -289,19 +289,19 @@ describe('summary.js test suite', function () {
       result = null
     })
 
-    it('should set summary.stats to inherit from browser.lastResult', function () {
-      summary.onSpecComplete(browser, result)
-      expect(Object.getPrototypeOf(summary.stats)).to.eq(browser.lastResult)
+    it('should set brief.stats to inherit from browser.lastResult', function () {
+      brief.onSpecComplete(browser, result)
+      expect(Object.getPrototypeOf(brief.stats)).to.eq(browser.lastResult)
     })
 
     it('should only call save on store when suppressErrorReport is false', function () {
-      summary.options.suppressErrorReport = true
-      summary.onSpecComplete(browser, result)
+      brief.options.suppressErrorReport = true
+      brief.onSpecComplete(browser, result)
 
       expect(storeInstanceFake.save.called).to.be.false
 
-      summary.options.suppressErrorReport = false
-      summary.onSpecComplete(browser, result)
+      brief.options.suppressErrorReport = false
+      brief.onSpecComplete(browser, result)
 
       expect(storeInstanceFake.save.calledOnce).to.be.true
       expect(storeInstanceFake.save.calledWithExactly(browser, result)).to.be.true
@@ -310,35 +310,35 @@ describe('summary.js test suite', function () {
 
   describe('onRunComplete method tests', function () {
     beforeEach(function () {
-      summary = new Summary(null, null, configFake)
-      summary.browserErrors = []
-      summary.store = storeInstanceFake
-      summary.stats = 'stats'
-      summary.browserLogs = 'browserLogs'
+      brief = new Brief(null, null, configFake)
+      brief.browserErrors = []
+      brief.store = storeInstanceFake
+      brief.stats = 'stats'
+      brief.browserLogs = 'browserLogs'
     })
 
     it('should always call shellFake.cursor.show()', function () {
-      summary.onRunComplete()
+      brief.onRunComplete()
       ok(shellFake.cursor.show.calledOnce)
     })
 
     it('should call the expected methods when browserErrors is empty', function () {
-      summary.onRunComplete()
+      brief.onRunComplete()
 
       ok(printersFake.printTestFailures.calledOnce)
-      ok(printersFake.printTestFailures.calledWithExactly(summary.store.getData()))
+      ok(printersFake.printTestFailures.calledWithExactly(brief.store.getData()))
 
       ok(printersFake.printStats.calledOnce)
-      ok(printersFake.printStats.calledWithExactly(summary.stats))
+      ok(printersFake.printStats.calledWithExactly(brief.stats))
 
       ok(printersFake.printBrowserLogs.calledOnce)
-      ok(printersFake.printBrowserLogs.calledWithExactly(summary.browserLogs))
+      ok(printersFake.printBrowserLogs.calledWithExactly(brief.browserLogs))
     })
 
     it('should call the expected methods when borwserErrors is not empty', function () {
-      summary.browserErrors.push('I\'m an error')
-      summary.onRunComplete()
-      ok(printersFake.printRuntimeErrors.calledWithExactly(summary.browserErrors))
+      brief.browserErrors.push('I\'m an error')
+      brief.onRunComplete()
+      ok(printersFake.printRuntimeErrors.calledWithExactly(brief.browserErrors))
     })
   })
 
@@ -347,17 +347,17 @@ describe('summary.js test suite', function () {
       var browser1 = {id: 'browser1'}
       var browser2 = {id: 'browser2'}
 
-      summary = new Summary(null, null, configFake)
-      summary.browsers = []
-      summary.browserLogs = {}
+      brief = new Brief(null, null, configFake)
+      brief.browsers = []
+      brief.browserLogs = {}
 
-      summary.onBrowserStart(browser1)
-      eq(1, summary.browsers.length)
-      eq(browser1, summary.browsers[0])
+      brief.onBrowserStart(browser1)
+      eq(1, brief.browsers.length)
+      eq(browser1, brief.browsers[0])
 
-      summary.onBrowserStart(browser2)
-      eq(2, summary.browsers.length)
-      eq(browser2, summary.browsers[1])
+      brief.onBrowserStart(browser2)
+      eq(2, brief.browsers.length)
+      eq(browser2, brief.browsers[1])
     })
   })
 
@@ -366,12 +366,12 @@ describe('summary.js test suite', function () {
       var browser = 'browser'
       var error = 'error'
 
-      summary = new Summary(null, null, configFake)
-      summary.browserErrors = []
+      brief = new Brief(null, null, configFake)
+      brief.browserErrors = []
 
-      summary.onBrowserError(browser, error)
-      expect(summary.browserErrors.length).to.eq(1)
-      expect(summary.browserErrors[0]).to.eql({'browser': browser, 'error': error})
+      brief.onBrowserError(browser, error)
+      expect(brief.browserErrors.length).to.eq(1)
+      expect(brief.browserErrors[0]).to.eql({'browser': browser, 'error': error})
     })
   })
 })
