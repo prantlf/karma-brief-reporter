@@ -1,7 +1,7 @@
 {
   "name": "karma-brief-reporter",
   "description": "Reports test progress statistics and lists failures at the end of a Karma test run.",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "homepage": "https://github.com/prantlf/karma-brief-reporter",
   "author": {
     "name": "Ferdinand Prantl",
@@ -32,7 +32,9 @@
     "check": "mocha test/*",
     "test": "npm run lint && npm run check",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- test/*",
-    "coveralls": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "cli-color": "^1.2.0",
@@ -51,7 +53,9 @@
     "sinon": "^5.0.7",
     "sinon-chai": "^3.0.0",
     "snazzy": "^7.1.1",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "travis-deploy-once": "^5.0.0",
+    "semantic-release": "^15.4.2"
   },
   "peerDependencies": {
     "karma": ">=0.9"

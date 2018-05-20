@@ -13,6 +13,7 @@ script:
   - npm run coverage
 after_success:
   - test `node --version | cut -c 2` -eq 8 && npm run coveralls
+  - npm run travis-deploy-once "npm run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
