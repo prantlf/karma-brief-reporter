@@ -1,7 +1,9 @@
 [![npm version](https://badge.fury.io/js/karma-brief-reporter.svg)](http://badge.fury.io/js/karma-brief-reporter)
-[![Build Status](https://travis-ci.org/dgarlitt/karma-brief-reporter.svg)](https://travis-ci.org/dgarlitt/karma-brief-reporter)
-[![Coverage Status](https://coveralls.io/repos/dgarlitt/karma-brief-reporter/badge.svg?branch=master)](https://coveralls.io/r/dgarlitt/karma-brief-reporter?branch=master)
-[![Dependency Status](https://david-dm.org/dgarlitt/karma-brief-reporter.svg)](https://david-dm.org/dgarlitt/karma-brief-reporter)
+[![Build Status](https://travis-ci.org/prantlf/karma-brief-reporter.svg)](https://travis-ci.org/prantlf/karma-brief-reporter)
+[![Coverage Status](https://coveralls.io/repos/prantlf/karma-brief-reporter/badge.svg?branch=master)](https://coveralls.io/r/prantlf/karma-brief-reporter?branch=master)
+[![Dependency Status](https://david-dm.org/prantlf/karma-brief-reporter.svg)](https://david-dm.org/prantlf/karma-brief-reporter)
+[![devDependency Status](https://david-dm.org/prantlf/karma-brief-reporter/dev-status.svg)](https://david-dm.org/prantlf/karma-brief-reporter#info=devDependencies)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 karma-brief-reporter
 ====================
