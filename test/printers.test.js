@@ -168,7 +168,7 @@ describe('printers.js test suite', function () {
       }
 
       clcFake.right.returns(tab)
-      clcFake.yellow.withArgs(pad(stats.total.toString(), 5, ' ') + ' total').returns('yellow>' + stats.total)
+      clcFake.yellow.withArgs(pad(stats.total.toString(), 5, ' ') + ' total  ').returns('yellow>' + stats.total)
       clcFake.green.withArgs(pad(stats.success.toString(), 5, ' ') + ' passed').returns('green>' + stats.success)
       clcFake.red.withArgs(pad(stats.failed.toString(), 5, ' ') + ' failed').returns('red>' + stats.failed)
       clcFake.cyan.withArgs(pad(stats.skipped.toString(), 5, ' ') + ' skipped').returns('cyan>' + stats.skipped)
