@@ -23,7 +23,9 @@ describe('printers.js test suite', function () {
       'redBright': sinon.stub(),
       'cyan': sinon.stub(),
       'green': sinon.stub(),
-      'right': sinon.stub(),
+      'move': {
+        'right': sinon.stub()
+      },
       'blackBright': sinon.stub(),
       'white': sinon.stub(),
       'yellow': sinon.stub()
@@ -167,7 +169,7 @@ describe('printers.js test suite', function () {
         'skipped': 99
       }
 
-      clcFake.right.returns(tab)
+      clcFake.move.right.returns(tab)
       clcFake.yellow.withArgs(pad(stats.total.toString(), 5, ' ') + ' total  ').returns('yellow>' + stats.total)
       clcFake.green.withArgs(pad(stats.success.toString(), 5, ' ') + ' passed').returns('green>' + stats.success)
       clcFake.red.withArgs(pad(stats.failed.toString(), 5, ' ') + ' failed').returns('red>' + stats.failed)
