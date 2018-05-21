@@ -99,6 +99,20 @@ module.exports = function(config) {
 };
 ```
 
+Notes
+-----
+
+**For [Grunt] users:** if you use this reporter with the [grunt-karma] task executed via the [grunt-subgrunt] task, do not run `grunt-karma` tasks in parallel. Progress of multiple tests will be written together and appear as a garbage more than usual, because the brief progress is rewritten on a single line using a special cursor movement character. Do not let `grunt-subgrunt` scale on the available CPU count:
+
+```js
+  subgrunt: {
+    options: {
+      // Do not run subtasks concurrently on multiple CPUs.
+      limit: 1
+    }
+  }
+```
+
 Contributing
 ------------
 
@@ -113,3 +127,6 @@ Licensed under the MIT license.
 
 [Nyan Cat reporter]: https://github.com/prantlf/karma-nyan-reporter
 [Mocha reporter]: https://github.com/litixsoft/karma-mocha-reporter
+[Grunt]: https://gruntjs.com/
+[grunt-karma]: https://github.com/karma-runner/grunt-karma
+[grunt-subgrunt]: https://github.com/tusbar/grunt-subgrunt
