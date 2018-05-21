@@ -37,8 +37,8 @@ HeadlessChrome 0.0.0 (Linux 0.0.0)
 
 Error: Script error for "jquery", needed by: /base/tests/main.spec.js
 http://requirejs.org/docs/errors.html#scripterror
-    at makeError (http://localhost:9876/base/node_modules/requirejs/require.js?242a935a7049803efaaa891de70075a8d6432d9b:168:17)
-    at HTMLScriptElement.onScriptError (http://localhost:9876/base/node_modules/requirejs/require.js?242a935a7049803efaaa891de70075a8d6432d9b:1738:36)
+    at makeError (http://localhost:9876/base/node_modules/requirejs/require.js:168:17)
+    at HTMLScriptElement.onScriptError (http://localhost:9876/base/node_modules/requirejs/require.js:1738:36)
 ```
 
 A test run, which ended with one test failure:
