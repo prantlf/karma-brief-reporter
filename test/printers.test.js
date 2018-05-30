@@ -28,7 +28,8 @@ describe('printers.js test suite', function () {
       },
       'blackBright': sinon.stub(),
       'white': sinon.stub(),
-      'yellow': sinon.stub()
+      'yellow': sinon.stub(),
+      'fixMoveRight': sinon.stub()
     }
 
     printers = rewire('../lib/util/printers')
