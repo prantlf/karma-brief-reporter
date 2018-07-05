@@ -65,7 +65,13 @@ describe('brief.js test suite', function () {
     }
 
     defaultPropertyKeys = [
-      'options'
+      'options',
+      'onBrowserError',
+      'onBrowserLog',
+      'onBrowserStart',
+      'onRunComplete',
+      'onRunStart',
+      'onSpecComplete'
     ]
 
     Brief = rewire('../lib/brief')
