@@ -89,6 +89,10 @@ module.exports = function(config) {
       // Suppress the error report at the end of the test run.
       suppressErrorReport: true, // default is false
 
+      // Suppress the immediate error report after each failing test.
+      // If this is set to true, suppressErrorReport has to be true too.
+      suppressErrorReportDuringRun: true, // default is false
+
       // Suppress the red background on errors in the error
       // report at the end of the test run.
       suppressErrorHighlighting: true, // default is false

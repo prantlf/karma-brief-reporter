@@ -53,6 +53,7 @@ describe('brief.js test suite', function () {
     printersFake = {
       'write': sinon.spy(),
       'printRuntimeErrors': sinon.spy(),
+      'printTestFailureDuringRun': sinon.spy(),
       'printTestFailures': sinon.spy(),
       'printProgress': sinon.spy(),
       'printStats': sinon.spy(),
@@ -104,6 +105,7 @@ describe('brief.js test suite', function () {
       expect(brief.options).to.be.an('object')
       expect(brief.options.suppressBrowserLogs).to.be.false
       expect(brief.options.suppressErrorReport).to.be.false
+      expect(brief.options.suppressErrorReportDuringRun).to.be.false
       expect(brief.options.suppressErrorHighlighting).to.be.false
       expect(brief.options.renderOnRunCompleteOnly).to.be.false
       expect(typesFake.setErrorFormatterMethod.calledOnce).to.be.true
@@ -114,6 +116,7 @@ describe('brief.js test suite', function () {
       configFake.briefReporter = {
         'suppressBrowserLogs': true,
         'suppressErrorReport': true,
+        'suppressErrorReportDuringRun': true,
         'suppressErrorHighlighting': true,
         'renderOnRunCompleteOnly': true,
         'someOtherOption': 1234
@@ -123,6 +126,7 @@ describe('brief.js test suite', function () {
 
       expect(brief.options.suppressBrowserLogs).to.be.true
       expect(brief.options.suppressErrorReport).to.be.true
+      expect(brief.options.suppressErrorReportDuringRun).to.be.true
       expect(brief.options.suppressErrorHighlighting).to.be.true
       expect(brief.options.renderOnRunCompleteOnly).to.be.true
       expect(brief.options.someOtherOption).to.be.undefined
@@ -313,6 +317,19 @@ describe('brief.js test suite', function () {
       brief.onSpecComplete(browser, result)
 
       expect(storeInstanceFake.save.calledOnce).to.be.true
+      expect(storeInstanceFake.save.calledWithExactly(browser, result)).to.be.true
+    })
+
+    it('should only print the failure immediately when suppressErrorReportDuringRun is false', function () {
+      brief.options.suppressErrorReportDuringRun = true
+      brief.onSpecComplete(browser, result)
+
+      expect(printersFake.printTestFailureDuringRun.called).to.be.false
+
+      brief.options.suppressErrorReportDuringRun = false
+      brief.onSpecComplete(browser, result)
+
+      expect(printersFake.printTestFailureDuringRun.calledOnce).to.be.true
       expect(storeInstanceFake.save.calledWithExactly(browser, result)).to.be.true
     })
   })

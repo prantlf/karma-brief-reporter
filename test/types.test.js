@@ -35,6 +35,9 @@ describe('types.js test suite', function () {
 
     clcFake.move.right.returns(right)
 
+    clcFake.black.bgRed.returns(' ')
+    clcFake.blackBright.returns(' ')
+
     types = rewire('../lib/data/types')
     types.__set__('clc', clcFake)
   })
@@ -151,7 +154,7 @@ describe('types.js test suite', function () {
   })
 
   describe('Browser - class ', function () {
-    let browser, name, depth, errors
+    let browser, test, suite, name, depth, errors
 
     beforeEach(function () {
       name = 'browser'
@@ -161,6 +164,9 @@ describe('types.js test suite', function () {
       browser = new types.Browser(name)
       browser.depth = depth
       browser.errors = errors
+
+      test = new types.Test('test')
+      suite = new types.Suite('suite')
     })
 
     it('should have the properties set correctly', function () {
@@ -214,6 +220,36 @@ describe('types.js test suite', function () {
       ].join('\n')
 
       actual = browser.toString()
+
+      eq(expected, actual)
+    })
+
+    it('should return the expected string when toStandaloneString is called', function () {
+      let expected, actual
+      let white = 'white'
+      let red = 'red'
+      let yellow = 'yellow>'
+      let redBright = 'redBright>'
+      let blackBright = 'blackBright>'
+      let bgRed = 'bgRed>'
+
+      clcFake.white.returns(white)
+      clcFake.red.returns(red)
+      clcFake.yellow.returns(yellow)
+      clcFake.redBright.returns(redBright)
+      clcFake.blackBright.returns(blackBright)
+      clcFake.black.bgRed.returns(bgRed)
+
+      expected = [
+        white,
+        right + red,
+        right + yellow,
+        right + redBright,
+        right + blackBright,
+        right + bgRed
+      ].join('\n')
+
+      actual = browser.toStandaloneString(suite, test)
 
       eq(expected, actual)
     })
