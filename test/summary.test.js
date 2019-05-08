@@ -14,6 +14,8 @@ var assert = chai.assert
 var eq = assert.equal
 var ok = assert.ok
 
+function baseReporterDecorator () {}
+
 describe('brief.js test suite', function () {
   var brief
   var Brief
@@ -96,7 +98,7 @@ describe('brief.js test suite', function () {
 
   describe('test constructor', function () {
     it('should have expected default properties', function () {
-      brief = new Brief(null, formatterFake, configFake)
+      brief = new Brief(baseReporterDecorator, formatterFake, configFake)
 
       expect(brief).to.contain.keys(defaultPropertyKeys)
       expect(brief.options).to.be.an('object')
@@ -117,7 +119,7 @@ describe('brief.js test suite', function () {
         'someOtherOption': 1234
       }
 
-      brief = new Brief(null, formatterFake, configFake)
+      brief = new Brief(baseReporterDecorator, formatterFake, configFake)
 
       expect(brief.options.suppressBrowserLogs).to.be.true
       expect(brief.options.suppressErrorReport).to.be.true
@@ -131,7 +133,7 @@ describe('brief.js test suite', function () {
         'suppressErrorHighlighting': true
       }
 
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
 
       expect(typesFake.suppressErrorHighlighting.calledOnce).to.be.true
     })
@@ -141,9 +143,10 @@ describe('brief.js test suite', function () {
     var props
 
     beforeEach(function () {
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
 
       props = {
+        'adapters': brief.adapters,
         'browsers': [],
         'browserLogs': {},
         'browserErrors': [],
@@ -182,7 +185,7 @@ describe('brief.js test suite', function () {
     beforeEach(function () {
       resetSpy = sinon.spy(Brief.prototype, 'reset')
 
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
     })
 
     afterEach(function () {
@@ -219,7 +222,7 @@ describe('brief.js test suite', function () {
       log1 = 'log message 1'
       log2 = 'log message 2'
 
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browserLogs = {
         'fakeBrowserId1': {
           name: 'fakeBrowserName1',
@@ -285,7 +288,7 @@ describe('brief.js test suite', function () {
 
       result = {}
 
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browsers = []
       brief.store = storeInstanceFake
     })
@@ -316,7 +319,7 @@ describe('brief.js test suite', function () {
 
   describe('onRunComplete method tests', function () {
     beforeEach(function () {
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browserErrors = []
       brief.store = storeInstanceFake
       brief.stats = 'stats'
@@ -353,7 +356,7 @@ describe('brief.js test suite', function () {
       var browser1 = { id: 'browser1' }
       var browser2 = { id: 'browser2' }
 
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browsers = []
       brief.browserLogs = {}
 
@@ -372,7 +375,7 @@ describe('brief.js test suite', function () {
       var browser = 'browser'
       var error = 'error'
 
-      brief = new Brief(null, null, configFake)
+      brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browserErrors = []
 
       brief.onBrowserError(browser, error)
