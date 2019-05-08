@@ -350,8 +350,8 @@ describe('brief.js test suite', function () {
 
   describe('onBrowserStart method tests', function () {
     it('should add to the browsers array', function () {
-      var browser1 = {id: 'browser1'}
-      var browser2 = {id: 'browser2'}
+      var browser1 = { id: 'browser1' }
+      var browser2 = { id: 'browser2' }
 
       brief = new Brief(null, null, configFake)
       brief.browsers = []
@@ -377,7 +377,7 @@ describe('brief.js test suite', function () {
 
       brief.onBrowserError(browser, error)
       expect(brief.browserErrors.length).to.eq(1)
-      expect(brief.browserErrors[0]).to.eql({'browser': browser, 'error': error})
+      expect(brief.browserErrors[0]).to.eql({ 'browser': browser, 'error': error })
     })
   })
 })

@@ -108,11 +108,11 @@ describe('data/store.js - test suite', function () {
       store.findTestByName = findTestByNameFake
       store.findBrowserByName = findBrowserByNameFake
 
-      suite = {depth: 0}
-      browser = {name: 'The Browser'}
-      result = {description: 'blah'}
+      suite = { depth: 0 }
+      browser = { name: 'The Browser' }
+      result = { description: 'blah' }
 
-      test = {browsers: []}
+      test = { browsers: [] }
       browserInfo = {}
 
       findTestByNameFake.withArgs([], result.description).returns(test)
@@ -155,11 +155,11 @@ describe('data/store.js - test suite', function () {
     let suiteFakeBob, suiteFakeDole
 
     beforeEach(function () {
-      resultFake = {suite: ['bob', 'dole']}
+      resultFake = { suite: ['bob', 'dole'] }
       findSuiteByNameFake = sinon.stub()
       getDataFake = sinon.stub()
       responseFake = ['bob']
-      suiteFakeBob = {suites: ['blah']}
+      suiteFakeBob = { suites: ['blah'] }
       suiteFakeDole = {}
 
       store.getData = getDataFake
