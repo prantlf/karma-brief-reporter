@@ -89,9 +89,12 @@ module.exports = function(config) {
       // Suppress the error report at the end of the test run.
       suppressErrorReport: true, // default is false
 
-      // Suppress the immediate error report after each failing test.
-      // If this is set to true, suppressErrorReport has to be true too.
-      suppressErrorReportDuringRun: true, // default is false
+      // Print the test failures immediately instead of at the end.
+      // The brief summary is updated on the last line. If this
+      // is set to true, suppressErrorReport must be set to false.
+      // Enable this, if you want to watch the failed test names
+      // and descriptions and break the test run, when you want.
+      earlyErrorReport: true, // default is false
 
       // Suppress the red background on errors in the error
       // report at the end of the test run.
