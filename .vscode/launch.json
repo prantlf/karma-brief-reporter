@@ -22,6 +22,15 @@
         "start",
         "--single-run"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "test",
+      "program": "${workspaceFolder}/example/node_modules/mocha/bin/_mocha",
+      "args": [
+        "test/*"
+      ]
     }
   ]
 }
