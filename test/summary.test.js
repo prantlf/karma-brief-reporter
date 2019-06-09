@@ -351,6 +351,7 @@ describe('brief.js test suite', function () {
       brief.store = storeInstanceFake
       brief.stats = 'stats'
       brief.browserLogs = 'browserLogs'
+      brief.browsers = ['browser']
     })
 
     it('should always call shellFake.cursor.show()', function () {
@@ -371,10 +372,10 @@ describe('brief.js test suite', function () {
       ok(printersFake.printBrowserLogs.calledWithExactly(brief.browserLogs))
     })
 
-    it('should call the expected methods when borwserErrors is not empty', function () {
-      brief.browserErrors.push('I\'m an error')
+    it('should call the expected methods when browserErrors is not empty', function () {
+      brief.browserErrors.push({ browser: 'browser', error: 'I\'m an error' })
       brief.onRunComplete()
-      ok(printersFake.printRuntimeErrors.calledWithExactly(brief.browserErrors))
+      ok(printersFake.printRuntimeErrors.calledWithExactly(['browser'], brief.browserErrors))
     })
   })
 

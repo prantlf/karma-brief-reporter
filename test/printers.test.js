@@ -106,7 +106,7 @@ describe('printers.js test suite', function () {
 
       clcFake.red.returnsArg(0)
 
-      printers.printRuntimeErrors(runtimeErrors)
+      printers.printRuntimeErrors(['browser1', 'browser2', 'browser3'], runtimeErrors)
 
       for (let i = 0; i < out.length; i++) {
         ++total
