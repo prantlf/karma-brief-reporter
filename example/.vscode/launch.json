@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "browser",
+      "port": 9333,
+      "webRoot": "${workspaceFolder}",
+      "pathMapping": {
+        "/": "${workspaceRoot}",
+        "/base/": "${workspaceRoot}/"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "karma",
+      "program": "${workspaceFolder}/node_modules/.bin/karma",
+      "args": [
+        "start", 
+        "--single-run"
+      ]
+    }
+  ]
+}
