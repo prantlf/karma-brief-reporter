@@ -1,10 +1,13 @@
+.coveralls.yml
+.editorconfig
+.eslintrc.yml
 .git
 .gitignore
-.editorconfig
 .idea
 .npmignore
 .vscode
 coverage
+demo.*
 example
 node_modules
 npm-debug.log
