@@ -47,7 +47,8 @@ describe('brief.js test suite', function () {
 
     typesFake = {
       'setErrorFormatterMethod': sinon.spy(),
-      'suppressErrorHighlighting': sinon.spy()
+      'suppressErrorHighlighting': sinon.spy(),
+      'omitExternalStackFrames': sinon.spy()
     }
 
     printersFake = {
@@ -107,6 +108,7 @@ describe('brief.js test suite', function () {
       expect(brief.options.suppressErrorReport).to.be.false
       expect(brief.options.earlyErrorReport).to.be.false
       expect(brief.options.suppressErrorHighlighting).to.be.false
+      expect(brief.options.omitExternalStackFrames).to.be.false
       expect(brief.options.renderOnRunCompleteOnly).to.be.false
       expect(typesFake.setErrorFormatterMethod.calledOnce).to.be.true
       expect(typesFake.setErrorFormatterMethod.calledWithExactly(formatterFake)).to.be.true
@@ -118,6 +120,7 @@ describe('brief.js test suite', function () {
         'suppressErrorReport': true,
         'earlyErrorReport': true,
         'suppressErrorHighlighting': true,
+        'omitExternalStackFrames': true,
         'renderOnRunCompleteOnly': true,
         'someOtherOption': 1234
       }
@@ -128,6 +131,7 @@ describe('brief.js test suite', function () {
       expect(brief.options.suppressErrorReport).to.be.true
       expect(brief.options.earlyErrorReport).to.be.true
       expect(brief.options.suppressErrorHighlighting).to.be.true
+      expect(brief.options.omitExternalStackFrames).to.be.true
       expect(brief.options.renderOnRunCompleteOnly).to.be.true
       expect(brief.options.someOtherOption).to.be.undefined
     })
@@ -140,6 +144,16 @@ describe('brief.js test suite', function () {
       brief = new Brief(baseReporterDecorator, null, configFake)
 
       expect(typesFake.suppressErrorHighlighting.calledOnce).to.be.true
+    })
+
+    it('should omitExternalStackFrames if option is set in config', function () {
+      configFake.briefReporter = {
+        'omitExternalStackFrames': true
+      }
+
+      brief = new Brief(baseReporterDecorator, null, configFake)
+
+      expect(typesFake.omitExternalStackFrames.calledOnce).to.be.true
     })
   })
 

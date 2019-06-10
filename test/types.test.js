@@ -256,16 +256,21 @@ describe('types.js test suite', function () {
 
     describe('errorHighlighting', function () {
       it('should not use black.bgRed when suppressErrorHighlighting is called', function () {
-        browser.errors = [
-          'Error Info',
-          'error1',
-          'error2'
-        ]
-
         types.suppressErrorHighlighting()
         browser.toString()
 
+        ok(clcFake.black.bgRed.notCalled)
         ok(clcFake.blackBright.calledTwice)
+      })
+    })
+
+    describe('externalStackFrames', function () {
+      it('should not include stack frames from external dependencies when omitExternalStackFrames is called', function () {
+        types.omitExternalStackFrames()
+        browser.toString()
+
+        ok(clcFake.black.bgRed.calledOnce)
+        ok(clcFake.blackBright.notCalled)
       })
     })
 

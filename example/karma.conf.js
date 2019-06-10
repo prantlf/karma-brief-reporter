@@ -6,6 +6,9 @@ module.exports = function (config) {
       'test/**/*.js'
     ],
     reporters: ['brief'],
+    briefReporter: {
+      omitExternalStackFrames: true
+    },
     browsers: ['ChromeDebugging', 'FirefoxHeadless'],
     customLaunchers: {
       ChromeDebugging: {
