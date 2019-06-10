@@ -42,7 +42,7 @@ config:
   # Maximum delay between frames in ms
   # Ignored if the `frameDelay` isn't set to `auto`
   # Set to `auto` to prevent limiting the max idle time
-  maxIdleTime: 2000
+  maxIdleTime: 100
   
   # The surrounding frame box
   # The `type` can be null, window, floating, or solid`
@@ -112,31 +112,29 @@ config:
   
 # Records, feel free to edit them
 records:
-  - delay: 100
-    content: '$:~/Sou...er/example '
-  - delay: 100
-    content: karma start karma.mocha.js --single-run
-  - delay: 100
-    content: "\r\n"
+  - delay: 20
+    content: "$:~/Sou...er/example karma start karma.mocha.js --single-run\r\n"
   - delay: 100
     content: "\e[?25l\r\n"
   - delay: 20
-    content: "\e[32m10 06 2019 13:04:42.134:INFO [karma-server]: \e[39mKarma v4.1.0 server started at http://0.0.0.0:9876/\r\n\e[32m10 06 2019 13:04:42.136:INFO [launcher]: \e[39mLaunching browsers ChromeHeadless, FirefoxHeadless with concurrency unlimited\r\n\e[32m10 06 2019 13:04:42.140:INFO [launcher]: \e[39mStarting browser ChromeHeadless\r\n"
+    content: "\e[32m10 06 2019 14:43:15.653:INFO [karma-server]: \e[39mKarma v4.1.0 server started at http://0.0.0.0:9876/\r\n\e[32m10 06 2019 14:43:15.656:INFO [launcher]: \e[39mLaunching browsers ChromeHeadless, FirefoxHeadless with concurrency unlimited\r\n"
   - delay: 5
-    content: "\e[32m10 06 2019 13:04:42.145:INFO [launcher]: \e[39mStarting browser FirefoxHeadless\r\n"
-  - delay: 250
-    content: "\e[32m10 06 2019 13:04:42.543:INFO [HeadlessChrome 75.0.3770 (Mac OS X 10.14.5)]: \e[39mConnected on socket JE--AjQK0zPDWffLAAAA with id 2983098\r\n"
-  - delay: 250
-    content: "\e[32m10 06 2019 13:04:43.710:INFO [Firefox 67.0.0 (Mac OS X 10.14.0)]: \e[39mConnected on socket M-znEkulsc8r8UDBAAAB with id 87239002\r\n"
-  - delay: 250
-    content: "\e[33m    5 pending\e[39m  \e[32m    1 passed\e[39m  \e[31m    0 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    4 pending\e[39m  \e[32m    1 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    3 pending\e[39m  \e[32m    2 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A"
-  - delay: 18
-    content: "\e[33m    2 pending\e[39m  \e[32m    3 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A"
-  - delay: 7
-    content: "\e[33m    1 pending\e[39m  \e[32m    4 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A"
-  - delay: 16
-    content: "\e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    6 total  \e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\r\n\e[31mFailed Tests:\r\n\e[39m\e[1C\e[37m\e[4mcountOccurrences\e[24m\e[39m\r\n\e[4C\e[31mfinds a single occurrence in the middle\e[39m\r\n\e[7C\e[33mHeadlessChrome 75.0.3770 (Mac OS X 10.14.5)\e[39m\r\n\e[10C1) \e[91mAssertionError: expected 0 to equal 1\e[39m\r\n\e[13C\e[41m\e[30mat Context.<anonymous> (test/mocha/occurrencesSpec.js:9:57)\e[39m\e[49m\r\n\e[7C\e[33mFirefox 67.0.0 (Mac OS X 10.14.0)\e[39m\r\n\e[10C2) \e[91mexpected 0 to equal 1\e[39m\r\n\e[13C\e[41m\e[30m@test/mocha/occurrencesSpec.js:9:57\e[39m\e[49m\r\n\r\n\r\n\e[?25h"
-  - delay: 81
+    content: "\e[32m10 06 2019 14:43:15.661:INFO [launcher]: \e[39mStarting browser ChromeHeadless\r\n\e[32m10 06 2019 14:43:15.665:INFO [launcher]: \e[39mStarting browser FirefoxHeadless\r\n"
+  - delay: 100
+    content: "\e[32m10 06 2019 14:43:16.036:INFO [HeadlessChrome 75.0.3770 (Mac OS X 10.14.5)]: \e[39mConnected on socket Gh1RdNyTFdPdUK71AAAA with id 22630171\r\n"
+  - delay: 110
+    content: "\e[33m    5 pending\e[39m  \e[32m    1 passed\e[39m  \e[31m    0 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    4 pending\e[39m  \e[32m    1 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    3 pending\e[39m  \e[32m    2 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    2 pending\e[39m  \e[32m    3 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    1 pending\e[39m  \e[32m    4 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A\e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[1A"
+  - delay: 100
+    content: "\e[32m10 06 2019 14:43:17.252:INFO [Firefox 67.0.0 (Mac OS X 10.14.0)]: \e[39mConnected on socket kI0oC1TU89EbUai6AAAB with id 79206585\r\n"
+  - delay: 100
+    content: "Chrome   \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    5 pending\e[39m  \e[32m    1 passed\e[39m  \e[31m    0 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[2AChrome   \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    4 pending\e[39m  \e[32m    1 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[2AChrome   \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    3 pending\e[39m  \e[32m    2 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[2A"
+  - delay: 9
+    content: "Chrome   \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    2 pending\e[39m  \e[32m    3 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[2A"
+  - delay: 8
+    content: "Chrome   \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    1 pending\e[39m  \e[32m    4 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[2A"
+  - delay: 11
+    content: "Chrome   \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    0 pending\e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\e[2AChrome   \e[33m    6 total  \e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\nFirefox  \e[33m    6 total  \e[39m  \e[32m    5 passed\e[39m  \e[31m    1 failed\e[39m  \e[36m    0 skipped\e[39m            \r\n\r\n\e[31mFailed Tests:\r\n\e[39m\e[1C\e[37m\e[4mcountOccurrences\e[24m\e[39m\r\n\e[4C\e[31mfinds a single occurrence in the middle\e[39m\r\n\e[7C\e[33mHeadlessChrome 75.0.3770 (Mac OS X 10.14.5)\e[39m\r\n\e[10C1) \e[91mAssertionError: expected 0 to equal 1\e[39m\r\n\e[13C\e[41m\e[30mat Context.<anonymous> (test/mocha/occurrencesSpec.js:9:57)\e[39m\e[49m\r\n\e[7C\e[33mFirefox 67.0.0 (Mac OS X 10.14.0)\e[39m\r\n\e[10C2) \e[91mexpected 0 to equal 1\e[39m\r\n\e[13C\e[41m\e[30m@test/mocha/occurrencesSpec.js:9:57\e[39m\e[49m\r\n\r\n\r\n\e[?25h"
+  - delay: 84
     content: '$:~/Sou...er/example '
-  - delay: 250
-    content: "\r\n"
+  - delay: 100
+    content: " "

@@ -37,7 +37,8 @@
   "dependencies": {
     "cli-color": "1.4.0",
     "mkdirp": "0.5.1",
-    "pad-left": "2.1.0"
+    "pad-left": "2.1.0",
+    "pad-right": "0.2.2"
   },
   "devDependencies": {
     "chai": "4.2.0",

@@ -380,7 +380,7 @@ describe('brief.js test suite', function () {
       ok(printersFake.printTestFailures.calledWithExactly(brief.store.getData()))
 
       ok(printersFake.printStats.calledOnce)
-      ok(printersFake.printStats.calledWithExactly(brief.stats))
+      ok(printersFake.printStats.calledWithExactly(['browser'], brief.stats))
 
       ok(printersFake.printBrowserLogs.calledOnce)
       ok(printersFake.printBrowserLogs.calledWithExactly(brief.browserLogs))

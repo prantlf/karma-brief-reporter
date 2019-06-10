@@ -178,7 +178,7 @@ describe('printers.js test suite', function () {
 
       printers.__set__('write', writeFake)
 
-      printers.printStats(stats)
+      printers.printStats(['browser'], stats)
     })
 
     afterEach(function () {
