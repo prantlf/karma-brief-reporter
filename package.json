@@ -28,9 +28,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard --verbose",
-    "check": "mocha test/*",
+    "check": "istanbul cover node_modules/mocha/bin/_mocha --report lcov -- test/*",
     "test": "npm run lint && npm run check",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- test/*",
     "coveralls": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
