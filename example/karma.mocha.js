@@ -7,7 +7,8 @@ module.exports = function (config) {
     ],
     reporters: ['brief'],
     briefReporter: {
-      omitExternalStackFrames: true
+      omitExternalStackFrames: true,
+      suppressBrowserLogs: true
     },
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     customLaunchers: {
