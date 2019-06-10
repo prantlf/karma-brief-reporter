@@ -100,9 +100,9 @@ module.exports = function(config) {
       // report at the end of the test run.
       suppressErrorHighlighting: true, // default is false
 
-      // Omits stack frames from external dependencies like jasmine
-      // or chai, which appear in stack traces of failed tests and
-      // which are usually irrelevant to the tested code.
+      // Omits stack frames from external dependencies like qunit,
+      // jasmine or chai, which appear in stack traces of failed
+      // tests and which are usually irrelevant to the tested code.
       omitExternalStackFrames: true, // default is false
 
       // Suppress the browser console log at the end of the test run.

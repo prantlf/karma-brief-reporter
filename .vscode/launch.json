@@ -48,6 +48,20 @@
         "--browsers",
         "ChromeHeadless"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "karma:qunit",
+      "program": "${workspaceFolder}/example/node_modules/karma/bin/karma",
+      "cwd": "${workspaceFolder}/example",
+      "args": [
+        "start",
+        "karma.qunit.js",
+        "--single-run",
+        "--browsers",
+        "ChromeHeadless"
+      ]
     }
   ]
 }

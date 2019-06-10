@@ -8,9 +8,9 @@ function countOccurrences (haystack, needle) { // eslint-disable-line no-unused-
   if (haystack === 'oneone') {
     throw new Error('First failure')
   }
-  if (haystack === 'oneoneo') {
-    haystack.undefinedMethod()
-  }
+  // if (haystack === 'oneoneo') {
+  //   haystack.undefinedMethod()
+  // }
   // if (haystack === 'oneoneo') {
   //   setTimeout(function () {
   //     throw new Error('Asynchronous failure')
