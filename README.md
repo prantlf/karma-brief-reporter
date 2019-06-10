@@ -18,6 +18,8 @@ The brief reporter originated with a similar idea behind the [Nyan Cat reporter]
 - [Contributing](#contributing)
 - [License](#license)
 
+![Demo](https://raw.githubusercontent.com/prantlf/karma-brief-reporter/master/demo.gif)
+
 Examples
 --------
 
@@ -36,8 +38,8 @@ HeadlessChrome 0.0.0 (Linux 0.0.0)
 
 Error: Script error for "jquery", needed by: /base/tests/main.spec.js
 http://requirejs.org/docs/errors.html#scripterror
-    at makeError (http://localhost:9876/base/node_modules/requirejs/require.js:168:17)
-    at HTMLScriptElement.onScriptError (http://localhost:9876/base/node_modules/requirejs/require.js:1738:36)
+    at makeError (node_modules/requirejs/require.js:168:17)
+    at HTMLScriptElement.onScriptError (node_modules/requirejs/require.js:1738:36)
 ```
 
 A test run, which ended with one test failure:
@@ -139,7 +141,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 License
 -------
 
-Copyright (c) 2018 Ferdinand Prantl
+Copyright (c) 2018-2019 Ferdinand Prantl
 
 Licensed under the MIT license.
 
