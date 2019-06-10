@@ -20,7 +20,9 @@
       "cwd": "${workspaceFolder}/example",
       "args": [
         "start",
-        "--single-run"
+        "--single-run",
+        "--browsers",
+        "ChromeHeadless"
       ]
     },
     {

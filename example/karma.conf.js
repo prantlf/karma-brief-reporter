@@ -9,7 +9,7 @@ module.exports = function (config) {
     briefReporter: {
       omitExternalStackFrames: true
     },
-    browsers: ['ChromeDebugging', 'FirefoxHeadless'],
+    browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     customLaunchers: {
       ChromeDebugging: {
         base: 'Chrome',
