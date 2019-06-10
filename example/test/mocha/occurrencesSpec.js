@@ -9,10 +9,10 @@ describe('countOccurrences', function () {
     expect(countOccurrences('one two three', 'two')).to.equal(1)
   })
 
-  it('finds occurrences at the string boundary', function (done) {
-    setTimeout(function () {
+  it('finds occurrences at the string boundary', function () {
+    return new Promise(resolve => {
       countOccurrences('one two one', 'one').should.equal(2)
-      done()
+      resolve()
     })
   })
 
@@ -20,8 +20,11 @@ describe('countOccurrences', function () {
     assert.equal(2, countOccurrences('oneone', 'one'))
   })
 
-  it('do not count intersections', function () {
-    assert.equal(1, countOccurrences('oneoneo', 'oneo'))
+  it('do not count intersections', function (done) {
+    setTimeout(function () {
+      assert.equal(1, countOccurrences('oneoneo', 'oneo'))
+      done()
+    })
   })
 
   it('detects no occurrence', function () {

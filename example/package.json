@@ -3,15 +3,19 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "karma start --single-run",
-    "debug": "karma start --single-run --browsers ChromeDebugging"
+    "test:mocha": "karma start karma.mocha.js --single-run",
+    "test:jasmine": "karma start karma.jasmine.js --single-run",
+    "debug:mocha": "karma start karma.mocha.js --single-run --browsers ChromeDebugging",
+    "debug:jasmine": "karma start karma.jasmine.js --single-run --browsers ChromeDebugging"
   },
   "devDependencies": {
     "chai": "4.2.0",
+    "jasmine-core": "3.4.0",
     "karma": "4.1.0",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
+    "karma-jasmine": "2.0.1",
     "karma-mocha": "1.3.0",
     "mocha": "6.1.4"
   }

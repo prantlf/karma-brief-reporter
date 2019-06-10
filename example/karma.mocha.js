@@ -3,7 +3,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai'],
     files: [
       'src/**/*.js',
-      'test/**/*.js'
+      'test/mocha/**/*.js'
     ],
     reporters: ['brief'],
     briefReporter: {

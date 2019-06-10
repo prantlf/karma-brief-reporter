@@ -2,6 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "node",
+      "request": "launch",
+      "name": "test",
+      "program": "${workspaceFolder}/example/node_modules/mocha/bin/_mocha",
+      "args": [
+        "test/*"
+      ]
+    },
+    {
       "type": "chrome",
       "request": "attach",
       "name": "browser",
@@ -15,11 +24,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "karma",
+      "name": "karma:mocha",
       "program": "${workspaceFolder}/example/node_modules/karma/bin/karma",
       "cwd": "${workspaceFolder}/example",
       "args": [
         "start",
+        "karma.mocha.js",
         "--single-run",
         "--browsers",
         "ChromeHeadless"
@@ -28,10 +38,15 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "test",
-      "program": "${workspaceFolder}/example/node_modules/mocha/bin/_mocha",
+      "name": "karma:jasmine",
+      "program": "${workspaceFolder}/example/node_modules/karma/bin/karma",
+      "cwd": "${workspaceFolder}/example",
       "args": [
-        "test/*"
+        "start",
+        "karma.jasmine.js",
+        "--single-run",
+        "--browsers",
+        "ChromeHeadless"
       ]
     }
   ]
