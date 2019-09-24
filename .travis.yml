@@ -1,15 +1,10 @@
-sudo: false
 language: node_js
-cache:
-  directories:
-    - ~/.npm
 notifications:
   email: false
 node_js:
-  - '12'
-  - '10'
-  - '8'
-  - '6'
+  - node
+  - lts/*
+  - 8
 after_success:
   - test `node --version | cut -c 2,3` -eq 10 && npm run coveralls
   - npx semantic-release

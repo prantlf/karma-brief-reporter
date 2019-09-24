@@ -1,35 +1,35 @@
 /* eslint-env mocha */
 'use strict'
 
-let rewire = require('rewire')
-let chai = require('chai')
-let sinon = require('sinon')
+const rewire = require('rewire')
+const chai = require('chai')
+const sinon = require('sinon')
 
 chai.config.includeStack = true
 chai.use(require('sinon-chai'))
 
-let assert = chai.assert
-let eq = assert.equal
-let ok = assert.ok
+const assert = chai.assert
+const eq = assert.equal
+const ok = assert.ok
 
 describe('types.js test suite', function () {
   let types, clcFake, right
-  let tab = 3
+  const tab = 3
 
   beforeEach(function () {
     right = 'right>'
 
     clcFake = {
-      'move': {
-        'right': sinon.stub()
+      move: {
+        right: sinon.stub()
       },
-      'white': sinon.stub(),
-      'red': sinon.stub(),
-      'yellow': sinon.stub(),
-      'redBright': sinon.stub(),
-      'blackBright': sinon.stub(),
-      'black': {
-        'bgRed': sinon.stub()
+      white: sinon.stub(),
+      red: sinon.stub(),
+      yellow: sinon.stub(),
+      redBright: sinon.stub(),
+      blackBright: sinon.stub(),
+      black: {
+        bgRed: sinon.stub()
       }
     }
 
@@ -64,14 +64,14 @@ describe('types.js test suite', function () {
     })
 
     it('should return a string as expected when depth is 0', function () {
-      let underlineFake = sinon.stub()
+      const underlineFake = sinon.stub()
       underlineFake.returns('underline>' + suite.name)
 
       clcFake.white = {
         underline: underlineFake
       }
 
-      let expected = [
+      const expected = [
         right + 'underline>' + name,
         tests.join('\n\n'),
         '',
@@ -80,7 +80,7 @@ describe('types.js test suite', function () {
         '', ''
       ].join('\n')
 
-      let actual = suite.toString()
+      const actual = suite.toString()
 
       eq(expected, actual)
       ok(underlineFake.calledOnce)
@@ -88,11 +88,9 @@ describe('types.js test suite', function () {
     })
 
     it('should return a string as expected when depth is > 0', function () {
-      let actual, expected
-
       clcFake.white.returns('white>' + suite.name)
 
-      expected = [
+      const expected = [
         right + 'white>' + name,
         tests.join('\n\n'),
         '',
@@ -102,7 +100,7 @@ describe('types.js test suite', function () {
       ].join('\n')
 
       suite.depth = 1
-      actual = suite.toString()
+      const actual = suite.toString()
 
       eq(expected, actual)
       ok(clcFake.move.right.calledOnce)
@@ -133,17 +131,16 @@ describe('types.js test suite', function () {
     })
 
     it('should return the expected string when toString is called', function () {
-      let actual, expected
-      let redReturn = 'red>' + name
+      const redReturn = 'red>' + name
 
       clcFake.red.returns(redReturn)
 
-      expected = [
+      const expected = [
         right + redReturn,
         browsers.join('\n')
       ].join('\n')
 
-      actual = test.toString()
+      const actual = test.toString()
 
       eq(expected, actual)
       ok(clcFake.move.right.calledOnce)
@@ -201,37 +198,35 @@ describe('types.js test suite', function () {
     })
 
     it('should return the expected string when toString is called', function () {
-      let expected, actual
-      let yellow = 'yellow>'
-      let redBright = 'redBright>'
-      let blackBright = 'blackBright>'
-      let bgRed = 'bgRed>'
+      const yellow = 'yellow>'
+      const redBright = 'redBright>'
+      const blackBright = 'blackBright>'
+      const bgRed = 'bgRed>'
 
       clcFake.yellow.returns(yellow)
       clcFake.redBright.returns(redBright)
       clcFake.blackBright.returns(blackBright)
       clcFake.black.bgRed.returns(bgRed)
 
-      expected = [
+      const expected = [
         right + yellow,
         right + '1) ' + redBright,
         right + blackBright,
         right + bgRed
       ].join('\n')
 
-      actual = browser.toString()
+      const actual = browser.toString()
 
       eq(expected, actual)
     })
 
     it('should return the expected string when toStandaloneString is called', function () {
-      let expected, actual
-      let white = 'white'
-      let red = 'red'
-      let yellow = 'yellow>'
-      let redBright = 'redBright>'
-      let blackBright = 'blackBright>'
-      let bgRed = 'bgRed>'
+      const white = 'white'
+      const red = 'red'
+      const yellow = 'yellow>'
+      const redBright = 'redBright>'
+      const blackBright = 'blackBright>'
+      const bgRed = 'bgRed>'
 
       clcFake.white.returns(white)
       clcFake.red.returns(red)
@@ -240,7 +235,7 @@ describe('types.js test suite', function () {
       clcFake.blackBright.returns(blackBright)
       clcFake.black.bgRed.returns(bgRed)
 
-      expected = [
+      const expected = [
         white,
         right + red,
         right + yellow,
@@ -249,7 +244,7 @@ describe('types.js test suite', function () {
         right + bgRed
       ].join('\n')
 
-      actual = browser.toStandaloneString(suite, test)
+      const actual = browser.toStandaloneString(suite, test)
 
       eq(expected, actual)
     })
@@ -299,7 +294,7 @@ describe('types.js test suite', function () {
             'error2'
           ]
 
-          let alternateFormatMethod = function (error) {
+          const alternateFormatMethod = function (error) {
             return 'Bob Dole ' + error
           }
 

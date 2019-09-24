@@ -1,16 +1,16 @@
 /* eslint-env mocha */
 'use strict'
 
-let rewire = require('rewire')
-let chai = require('chai')
-let sinon = require('sinon')
+const rewire = require('rewire')
+const chai = require('chai')
+const sinon = require('sinon')
 
 chai.config.includeStack = true
 chai.use(require('sinon-chai'))
 
-let assert = chai.assert
-let ok = assert.ok
-let eq = assert.equal
+const assert = chai.assert
+const ok = assert.ok
+const eq = assert.equal
 
 describe('data/store.js - test suite', function () {
   let module, store, fakeBrowser, fakeResult, fakeSuite
@@ -42,7 +42,7 @@ describe('data/store.js - test suite', function () {
 
   describe('DataStore - class constructor tests', function () {
     it('getData returns an empty array', function () {
-      let actual = store.getData()
+      const actual = store.getData()
       assert.isArray(actual)
     })
   })
@@ -130,7 +130,7 @@ describe('data/store.js - test suite', function () {
     })
 
     it('should call findTestByName with suiteTestsFake', function () {
-      let suiteTestsFake = ['abc']
+      const suiteTestsFake = ['abc']
       suite.tests = suiteTestsFake
       findTestByNameFake.withArgs(suiteTestsFake, result.description).returns(test)
 
@@ -142,7 +142,7 @@ describe('data/store.js - test suite', function () {
 
     it('should create brwsr.errors from result.log', function () {
       result.log = ['failure01\nfailure02']
-      let expected = ['failure01', 'failure02']
+      const expected = ['failure01', 'failure02']
 
       store.saveResultToSuite(suite, browser, result)
 
@@ -199,13 +199,13 @@ describe('data/store.js - test suite', function () {
     })
 
     it('should return the existing FakeClass with the matching name', function () {
-      let actual = store.findByName(array, 'Bob Dole', FakeClass)
+      const actual = store.findByName(array, 'Bob Dole', FakeClass)
       eq(array[0], actual)
       eq(1, array.length)
     })
 
     it('should append a new FakeClass with the desired name when not found in arr', function () {
-      let actual = store.findByName(array, 'Columbo', FakeClass)
+      const actual = store.findByName(array, 'Columbo', FakeClass)
       eq(2, array.length)
       ok(actual instanceof FakeClass)
       eq('Columbo', actual.name)
@@ -222,8 +222,8 @@ describe('data/store.js - test suite', function () {
     })
 
     it('should call findByName with the expected params', function () {
-      let array = []
-      let name = 'Bob Dole Suite'
+      const array = []
+      const name = 'Bob Dole Suite'
       store.findSuiteByName(array, name)
 
       ok(findByNameFake.calledOnce)
@@ -241,8 +241,8 @@ describe('data/store.js - test suite', function () {
     })
 
     it('should call findByName with the expected params', function () {
-      let array = []
-      let name = 'Bob Dole Test'
+      const array = []
+      const name = 'Bob Dole Test'
       store.findTestByName(array, name)
 
       ok(findByNameFake.calledOnce)
@@ -260,8 +260,8 @@ describe('data/store.js - test suite', function () {
     })
 
     it('should call findByName with the expected params', function () {
-      let array = []
-      let name = 'Bob Dole Browser'
+      const array = []
+      const name = 'Bob Dole Browser'
       store.findBrowserByName(array, name)
 
       ok(findByNameFake.calledOnce)

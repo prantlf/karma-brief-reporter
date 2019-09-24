@@ -33,12 +33,12 @@ describe('brief.js test suite', function () {
     formatterFake = sinon.spy()
 
     storeInstanceFake = {
-      'save': sinon.spy(),
-      'getData': sinon.spy()
+      save: sinon.spy(),
+      getData: sinon.spy()
     }
 
     storeFake = {
-      'getInstance': sinon.stub()
+      getInstance: sinon.stub()
     }
 
     storeFake
@@ -46,25 +46,25 @@ describe('brief.js test suite', function () {
       .returns(storeInstanceFake)
 
     typesFake = {
-      'setErrorFormatterMethod': sinon.spy(),
-      'suppressErrorHighlighting': sinon.spy(),
-      'omitExternalStackFrames': sinon.spy()
+      setErrorFormatterMethod: sinon.spy(),
+      suppressErrorHighlighting: sinon.spy(),
+      omitExternalStackFrames: sinon.spy()
     }
 
     printersFake = {
-      'write': sinon.spy(),
-      'printRuntimeErrors': sinon.spy(),
-      'printTestFailureDuringRun': sinon.spy(),
-      'printTestFailures': sinon.spy(),
-      'printProgress': sinon.spy(),
-      'printStats': sinon.spy(),
-      'printBrowserLogs': sinon.spy()
+      write: sinon.spy(),
+      printRuntimeErrors: sinon.spy(),
+      printTestFailureDuringRun: sinon.spy(),
+      printTestFailures: sinon.spy(),
+      printProgress: sinon.spy(),
+      printStats: sinon.spy(),
+      printBrowserLogs: sinon.spy()
     }
 
     shellFake = {
-      'cursor': {
-        'show': sinon.spy(),
-        'hide': sinon.spy()
+      cursor: {
+        show: sinon.spy(),
+        hide: sinon.spy()
       }
     }
 
@@ -116,13 +116,13 @@ describe('brief.js test suite', function () {
 
     it('should set options when passed in via config', function () {
       configFake.briefReporter = {
-        'suppressBrowserLogs': true,
-        'suppressErrorReport': true,
-        'earlyErrorReport': true,
-        'suppressErrorHighlighting': true,
-        'omitExternalStackFrames': true,
-        'renderOnRunCompleteOnly': true,
-        'someOtherOption': 1234
+        suppressBrowserLogs: true,
+        suppressErrorReport: true,
+        earlyErrorReport: true,
+        suppressErrorHighlighting: true,
+        omitExternalStackFrames: true,
+        renderOnRunCompleteOnly: true,
+        someOtherOption: 1234
       }
 
       brief = new Brief(baseReporterDecorator, formatterFake, configFake)
@@ -138,7 +138,7 @@ describe('brief.js test suite', function () {
 
     it('should suppressErrorHighlighting if option is set in config', function () {
       configFake.briefReporter = {
-        'suppressErrorHighlighting': true
+        suppressErrorHighlighting: true
       }
 
       brief = new Brief(baseReporterDecorator, null, configFake)
@@ -148,7 +148,7 @@ describe('brief.js test suite', function () {
 
     it('should omitExternalStackFrames if option is set in config', function () {
       configFake.briefReporter = {
-        'omitExternalStackFrames': true
+        omitExternalStackFrames: true
       }
 
       brief = new Brief(baseReporterDecorator, null, configFake)
@@ -164,12 +164,12 @@ describe('brief.js test suite', function () {
       brief = new Brief(baseReporterDecorator, null, configFake)
 
       props = {
-        'adapters': brief.adapters,
-        'browsers': [],
-        'browserLogs': {},
-        'browserErrors': [],
-        'store': storeInstanceFake,
-        'stats': {}
+        adapters: brief.adapters,
+        browsers: [],
+        browserLogs: {},
+        browserErrors: [],
+        store: storeInstanceFake,
+        stats: {}
       }
     })
 
@@ -228,13 +228,13 @@ describe('brief.js test suite', function () {
 
     beforeEach(function () {
       browser1 = {
-        'id': 'fakeBrowserId1',
-        'name': 'fakeBrowserName1'
+        id: 'fakeBrowserId1',
+        name: 'fakeBrowserName1'
       }
 
       browser2 = {
-        'id': 'fakeBrowserId2',
-        'name': 'fakeBrowserName2'
+        id: 'fakeBrowserId2',
+        name: 'fakeBrowserName2'
       }
 
       log1 = 'log message 1'
@@ -242,11 +242,11 @@ describe('brief.js test suite', function () {
 
       brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browserLogs = {
-        'fakeBrowserId1': {
+        fakeBrowserId1: {
           name: 'fakeBrowserName1',
           messages: []
         },
-        'fakeBrowserId2': {
+        fakeBrowserId2: {
           name: 'fakeBrowserName2',
           messages: []
         }
@@ -301,7 +301,7 @@ describe('brief.js test suite', function () {
 
     beforeEach(function () {
       browser = {
-        'lastResult': {}
+        lastResult: {}
       }
 
       result = {}
@@ -422,7 +422,7 @@ describe('brief.js test suite', function () {
 
       brief.onBrowserError(browser, error)
       expect(brief.browserErrors.length).to.eq(1)
-      expect(brief.browserErrors[0]).to.eql({ 'browser': browser, 'error': error })
+      expect(brief.browserErrors[0]).to.eql({ browser: browser, error: error })
     })
   })
 })

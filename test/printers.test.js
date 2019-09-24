@@ -19,17 +19,17 @@ describe('printers.js test suite', function () {
 
   beforeEach(function () {
     clcFake = {
-      'red': sinon.stub(),
-      'redBright': sinon.stub(),
-      'cyan': sinon.stub(),
-      'green': sinon.stub(),
-      'move': {
-        'right': sinon.stub()
+      red: sinon.stub(),
+      redBright: sinon.stub(),
+      cyan: sinon.stub(),
+      green: sinon.stub(),
+      move: {
+        right: sinon.stub()
       },
-      'blackBright': sinon.stub(),
-      'white': sinon.stub(),
-      'yellow': sinon.stub(),
-      'fixMoveRight': sinon.stub()
+      blackBright: sinon.stub(),
+      white: sinon.stub(),
+      yellow: sinon.stub(),
+      fixMoveRight: sinon.stub()
     }
 
     printers = rewire('../lib/util/printers')
@@ -51,23 +51,23 @@ describe('printers.js test suite', function () {
       writeFake.returnsArg(0)
 
       runtimeErrors = [{
-        'browser': {
-          'name': 'browser1'
+        browser: {
+          name: 'browser1'
         },
-        'error': 'error1'
+        error: 'error1'
       }, {
-        'browser': {
-          'name': 'browser2'
+        browser: {
+          name: 'browser2'
         },
-        'error': {
-          'message': 'error2'
+        error: {
+          message: 'error2'
         }
       }, {
-        'browser': {
-          'name': 'browser3'
+        browser: {
+          name: 'browser3'
         },
-        'error': {
-          'code': 'error3'
+        error: {
+          code: 'error3'
         }
       }]
 
@@ -140,7 +140,7 @@ describe('printers.js test suite', function () {
     })
 
     it('should call write as expected when failedSuites is not null', function () {
-      let expected1 = 'Failed Tests:\n'
+      const expected1 = 'Failed Tests:\n'
       clcFake.red.withArgs(expected1).returnsArg(0)
       printers.printTestFailures([1, 2, 3])
       eq(4, writeFake.callCount)
@@ -164,10 +164,10 @@ describe('printers.js test suite', function () {
       writeFake.returnsArg(0)
 
       stats = {
-        'total': 11,
-        'success': 33,
-        'failed': 66,
-        'skipped': 99
+        total: 11,
+        success: 33,
+        failed: 66,
+        skipped: 99
       }
 
       clcFake.move.right.returns(tab)
@@ -210,13 +210,13 @@ describe('printers.js test suite', function () {
     beforeEach(function () {
       writeFake = sinon.stub()
       fakeLogs = {
-        '0': {
-          'name': 'browser1',
-          'messages': ['msg1a', 'msg1b']
+        0: {
+          name: 'browser1',
+          messages: ['msg1a', 'msg1b']
         },
-        '1': {
-          'name': 'browser2',
-          'messages': ['msg2a', 'msg2b']
+        1: {
+          name: 'browser2',
+          messages: ['msg2a', 'msg2b']
         }
       }
 

@@ -14,7 +14,7 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeDebugging: {
         base: 'Chrome',
-        flags: [ '--remote-debugging-port=9333' ]
+        flags: ['--remote-debugging-port=9333']
       }
     }
   })
