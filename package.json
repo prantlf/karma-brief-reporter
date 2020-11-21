@@ -23,7 +23,7 @@
     }
   ],
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "main": "index.js",
   "scripts": {
@@ -35,10 +35,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "cli-color": "1.4.0",
-    "mkdirp": "0.5.1",
-    "pad-left": "2.1.0",
-    "pad-right": "0.2.2"
+    "cli-color": "1.4.0"
   },
   "devDependencies": {
     "chai": "4.2.0",

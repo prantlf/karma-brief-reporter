@@ -4,6 +4,7 @@ notifications:
 node_js:
   - node
   - lts/*
+  - 10
   - 8
 after_success:
   - test `node --version | cut -c 2,3` -eq 10 && npm run coveralls
