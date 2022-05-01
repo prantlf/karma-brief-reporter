@@ -1,13 +1,9 @@
-[![npm version](https://badge.fury.io/js/karma-brief-reporter.svg)](http://badge.fury.io/js/karma-brief-reporter)
-[![Build Status](https://travis-ci.org/prantlf/karma-brief-reporter.svg)](https://travis-ci.org/prantlf/karma-brief-reporter)
-[![Coverage Status](https://coveralls.io/repos/prantlf/karma-brief-reporter/badge.svg?branch=master)](https://coveralls.io/r/prantlf/karma-brief-reporter?branch=master)
-[![Dependency Status](https://david-dm.org/prantlf/karma-brief-reporter.svg)](https://david-dm.org/prantlf/karma-brief-reporter)
-[![devDependency Status](https://david-dm.org/prantlf/karma-brief-reporter/dev-status.svg)](https://david-dm.org/prantlf/karma-brief-reporter#info=devDependencies)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 karma-brief-reporter
 ====================
+
+[![Latest version](https://img.shields.io/npm/v/karma-brief-reporter)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/karma-brief-reporter)
+](https://www.npmjs.com/package/karma-brief-reporter)
 
 The brief reporter originated with a similar idea behind the [Nyan Cat reporter] - do not print information about every successful test or failing test immediately, like the [Mocha reporter] does it. Print only test count statistics during the test run and summary about failing tests at the end. Unlike the Nyan Cat reporter, this reporter prints the progress statistics on one line only. It takes less space and if the terminal application prevents moving the cursor up, the screen is not covered by garbage.
 
@@ -141,7 +137,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 License
 -------
 
-Copyright (c) 2018-2019 Ferdinand Prantl
+Copyright (c) 2018-2022 Ferdinand Prantl
 
 Licensed under the MIT license.
 

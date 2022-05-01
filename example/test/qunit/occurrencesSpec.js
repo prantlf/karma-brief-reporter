@@ -11,7 +11,7 @@ QUnit.test('finds a single occurrence in the middle', function (assert) {
 })
 
 QUnit.test('finds occurrences at the string boundary', function (assert) {
-  var done = assert.async()
+  const done = assert.async()
   new Promise(resolve => {
     assert.equal(countOccurrences('one two one', 'one'), 2)
     resolve()
@@ -23,7 +23,7 @@ QUnit.test('finds occurrences next to each other', function (assert) {
 })
 
 QUnit.test('do not count intersections', function (assert) {
-  var done = assert.async()
+  const done = assert.async()
   setTimeout(function () {
     assert.equal(countOccurrences('oneoneo', 'oneo'), 1)
     done()

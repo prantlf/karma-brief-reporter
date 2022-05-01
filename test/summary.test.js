@@ -2,31 +2,31 @@
 /* eslint-disable no-unused-expressions */
 'use strict'
 
-var rewire = require('rewire')
-var chai = require('chai')
-var sinon = require('sinon')
+const rewire = require('rewire')
+const chai = require('chai')
+const sinon = require('sinon')
 
 chai.config.includeStack = true
 chai.use(require('sinon-chai'))
 
-var expect = chai.expect
-var assert = chai.assert
-var eq = assert.equal
-var ok = assert.ok
+const expect = chai.expect
+const assert = chai.assert
+const eq = assert.equal
+const ok = assert.ok
 
 function baseReporterDecorator () {}
 
 describe('brief.js test suite', function () {
-  var brief
-  var Brief
-  var configFake
-  var formatterFake
-  var storeInstanceFake
-  var storeFake
-  var typesFake
-  var printersFake
-  var shellFake
-  var defaultPropertyKeys
+  let brief
+  let Brief
+  let configFake
+  let formatterFake
+  let storeInstanceFake
+  let storeFake
+  let typesFake
+  let printersFake
+  let shellFake
+  let defaultPropertyKeys
 
   beforeEach(function () {
     configFake = {}
@@ -158,7 +158,7 @@ describe('brief.js test suite', function () {
   })
 
   describe('test reset method', function () {
-    var props
+    let props
 
     beforeEach(function () {
       brief = new Brief(baseReporterDecorator, null, configFake)
@@ -186,7 +186,7 @@ describe('brief.js test suite', function () {
 
       expect(brief).to.have.keys(Object.keys(props).concat(defaultPropertyKeys))
 
-      for (var key in props) {
+      for (const key in props) {
         expect(brief[key]).to.eql(props[key])
       }
     })
@@ -198,7 +198,7 @@ describe('brief.js test suite', function () {
   })
 
   describe('onRunStart method tests', function () {
-    var resetSpy
+    let resetSpy
 
     beforeEach(function () {
       resetSpy = sinon.spy(Brief.prototype, 'reset')
@@ -221,10 +221,10 @@ describe('brief.js test suite', function () {
   })
 
   describe('onBrowserLog method tests', function () {
-    var browser1
-    var browser2
-    var log1
-    var log2
+    let browser1
+    let browser2
+    let log1
+    let log2
 
     beforeEach(function () {
       browser1 = {
@@ -274,7 +274,7 @@ describe('brief.js test suite', function () {
       brief.onBrowserLog(browser1, log1, null)
       brief.onBrowserLog(browser1, log2, null)
 
-      var logs = brief.browserLogs[browser1.id].messages
+      const logs = brief.browserLogs[browser1.id].messages
 
       expect(logs.length).to.eq(2)
       expect(logs[0]).to.eq(log1)
@@ -285,8 +285,8 @@ describe('brief.js test suite', function () {
       brief.onBrowserLog(browser1, log1, null)
       brief.onBrowserLog(browser2, log2, null)
 
-      var logs1 = brief.browserLogs[browser1.id].messages
-      var logs2 = brief.browserLogs[browser2.id].messages
+      const logs1 = brief.browserLogs[browser1.id].messages
+      const logs2 = brief.browserLogs[browser2.id].messages
 
       expect(logs1.length).to.eq(1)
       expect(logs2.length).to.eq(1)
@@ -296,8 +296,8 @@ describe('brief.js test suite', function () {
   })
 
   describe('onSpecComplete method tests', function () {
-    var browser
-    var result
+    let browser
+    let result
 
     beforeEach(function () {
       browser = {
@@ -395,8 +395,8 @@ describe('brief.js test suite', function () {
 
   describe('onBrowserStart method tests', function () {
     it('should add to the browsers array', function () {
-      var browser1 = { id: 'browser1' }
-      var browser2 = { id: 'browser2' }
+      const browser1 = { id: 'browser1' }
+      const browser2 = { id: 'browser2' }
 
       brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browsers = []
@@ -414,15 +414,15 @@ describe('brief.js test suite', function () {
 
   describe('onBrowserError method tests', function () {
     it('should add to the browserErrors property', function () {
-      var browser = 'browser'
-      var error = 'error'
+      const browser = 'browser'
+      const error = 'error'
 
       brief = new Brief(baseReporterDecorator, null, configFake)
       brief.browserErrors = []
 
       brief.onBrowserError(browser, error)
       expect(brief.browserErrors.length).to.eq(1)
-      expect(brief.browserErrors[0]).to.eql({ browser: browser, error: error })
+      expect(brief.browserErrors[0]).to.eql({ browser, error })
     })
   })
 })
