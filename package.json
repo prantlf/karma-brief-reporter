@@ -1,7 +1,7 @@
 {
   "name": "karma-brief-reporter",
   "description": "Reports test progress statistics and lists failures at the end of a Karma test run.",
-  "version": "0.0.0-development",
+  "version": "0.2.2",
   "homepage": "https://github.com/prantlf/karma-brief-reporter",
   "author": {
     "name": "Ferdinand Prantl",
