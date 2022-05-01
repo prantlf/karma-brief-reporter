@@ -4,7 +4,6 @@
 const rewire = require('rewire')
 const chai = require('chai')
 const sinon = require('sinon')
-const pad = require('pad-left')
 
 chai.config.includeStack = true
 chai.use(require('sinon-chai'))
@@ -171,10 +170,10 @@ describe('printers.js test suite', function () {
       }
 
       clcFake.move.right.returns(tab)
-      clcFake.yellow.withArgs(pad(stats.total.toString(), 5, ' ') + ' total  ').returns('yellow>' + stats.total)
-      clcFake.green.withArgs(pad(stats.success.toString(), 5, ' ') + ' passed').returns('green>' + stats.success)
-      clcFake.red.withArgs(pad(stats.failed.toString(), 5, ' ') + ' failed').returns('red>' + stats.failed)
-      clcFake.cyan.withArgs(pad(stats.skipped.toString(), 5, ' ') + ' skipped').returns('cyan>' + stats.skipped)
+      clcFake.yellow.withArgs(stats.total.toString().padStart(5, ' ') + ' total  ').returns('yellow>' + stats.total)
+      clcFake.green.withArgs(stats.success.toString().padStart(5, ' ') + ' passed').returns('green>' + stats.success)
+      clcFake.red.withArgs(stats.failed.toString().padStart(5, ' ') + ' failed').returns('red>' + stats.failed)
+      clcFake.cyan.withArgs(stats.skipped.toString().padStart(5, ' ') + ' skipped').returns('cyan>' + stats.skipped)
 
       printers.__set__('write', writeFake)
 
