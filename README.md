@@ -1,10 +1,6 @@
 karma-brief-reporter
 ====================
 
-[![Latest version](https://img.shields.io/npm/v/karma-brief-reporter)
- ![Dependency status](https://img.shields.io/librariesio/release/npm/karma-brief-reporter)
-](https://www.npmjs.com/package/karma-brief-reporter)
-
 The brief reporter originated with a similar idea behind the [Nyan Cat reporter] - do not print information about every successful test or failing test immediately, like the [Mocha reporter] does it. Print only test count statistics during the test run and summary about failing tests at the end. Unlike the Nyan Cat reporter, this reporter prints the progress statistics on one line only. It takes less space and if the terminal application prevents moving the cursor up, the screen is not covered by garbage.
 
 - [Examples](#xamples)

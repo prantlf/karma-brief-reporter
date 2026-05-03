@@ -7,7 +7,6 @@ const chai = require('chai')
 const sinon = require('sinon')
 
 chai.config.includeStack = true
-chai.use(require('sinon-chai'))
 
 const expect = chai.expect
 const assert = chai.assert

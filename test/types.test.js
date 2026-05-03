@@ -6,7 +6,6 @@ const chai = require('chai')
 const sinon = require('sinon')
 
 chai.config.includeStack = true
-chai.use(require('sinon-chai'))
 
 const assert = chai.assert
 const eq = assert.equal

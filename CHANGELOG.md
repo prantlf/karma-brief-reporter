@@ -1,5 +1,6 @@
-## [0.2.2](https://github.com/prantlf/karma-brief-reporter/compare/v0.2.1...v0.2.2) (2022-05-01)
+# Changes
 
+## [0.2.2](https://github.com/prantlf/karma-brief-reporter/compare/v0.2.1...v0.2.2) (2022-05-01)
 
 ### Bug Fixes
 
