@@ -1,5 +1,11 @@
 # Changes
 
+## [0.3.0](https://github.com/prantlf/karma-brief-reporter/compare/v0.2.2...v0.3.0) (2026-05-03)
+
+### Features
+
+* Upgrade dependencies ([2a11c30](https://github.com/prantlf/karma-brief-reporter/commit/2a11c306dd55ee52889330b5837d605d14fc29aa))
+
 ## [0.2.2](https://github.com/prantlf/karma-brief-reporter/compare/v0.2.1...v0.2.2) (2022-05-01)
 
 ### Bug Fixes
