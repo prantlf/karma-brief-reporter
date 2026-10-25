@@ -1,6 +1,6 @@
 {
   "name": "karma-brief-reporter",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Reports test progress statistics and lists failures at the end of a Karma test run.",
   "keywords": [
     "brief",
