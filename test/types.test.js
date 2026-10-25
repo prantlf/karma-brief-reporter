@@ -76,7 +76,8 @@ describe('types.js test suite', function () {
         '',
         suites.join('\n\n'),
         '',
-        '', ''
+        '',
+        ''
       ].join('\n')
 
       const actual = suite.toString()
@@ -95,7 +96,8 @@ describe('types.js test suite', function () {
         '',
         suites.join('\n\n'),
         '',
-        '', ''
+        '',
+        ''
       ].join('\n')
 
       suite.depth = 1
@@ -134,10 +136,7 @@ describe('types.js test suite', function () {
 
       clcFake.red.returns(redReturn)
 
-      const expected = [
-        right + redReturn,
-        browsers.join('\n')
-      ].join('\n')
+      const expected = [right + redReturn, browsers.join('\n')].join('\n')
 
       const actual = test.toString()
 
@@ -287,11 +286,7 @@ describe('types.js test suite', function () {
 
       describe('setErrorFormatterMethod', function () {
         it('should override the default errorFormatterMethod', function () {
-          browser.errors = [
-            'Error Info',
-            'error1',
-            'error2'
-          ]
+          browser.errors = ['Error Info', 'error1', 'error2']
 
           const alternateFormatMethod = function (error) {
             return 'Bob Dole ' + error

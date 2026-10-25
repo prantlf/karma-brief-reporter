@@ -1,10 +1,7 @@
-module.exports = function (config) {
+export default function (config) {
   config.set({
     frameworks: ['mocha', 'chai'],
-    files: [
-      'src/**/*.js',
-      'test/mocha/**/*.js'
-    ],
+    files: ['src/**/*.js', 'test/mocha/**/*.js'],
     reporters: ['brief'],
     briefReporter: {
       omitExternalStackFrames: true,

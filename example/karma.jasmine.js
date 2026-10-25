@@ -1,10 +1,7 @@
-module.exports = function (config) {
+export default function (config) {
   config.set({
     frameworks: ['jasmine'],
-    files: [
-      'src/**/*.js',
-      'test/jasmine/**/*.js'
-    ],
+    files: ['src/**/*.js', 'test/jasmine/**/*.js'],
     reporters: ['brief'],
     briefReporter: {
       omitExternalStackFrames: true,

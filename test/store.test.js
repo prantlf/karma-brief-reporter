@@ -57,15 +57,18 @@ describe('data/store.js - test suite', function () {
       store.saveResultToSuite = saveResultToSuiteFake
     })
 
-    it('should call findSuiteInResult and saveResultToSuite if result.skipped ' +
-       'and result.skipped are false and result.suite.length > 0', function () {
-      findSuiteInResultFake.withArgs(fakeResult).returns(fakeSuite)
+    it(
+      'should call findSuiteInResult and saveResultToSuite if result.skipped ' +
+        'and result.skipped are false and result.suite.length > 0',
+      function () {
+        findSuiteInResultFake.withArgs(fakeResult).returns(fakeSuite)
 
-      store.save(fakeBrowser, fakeResult)
+        store.save(fakeBrowser, fakeResult)
 
-      ok(findSuiteInResultFake.withArgs(fakeResult).calledOnce)
-      ok(saveResultToSuiteFake.withArgs(fakeSuite, fakeBrowser, fakeResult).calledOnce)
-    })
+        ok(findSuiteInResultFake.withArgs(fakeResult).calledOnce)
+        ok(saveResultToSuiteFake.withArgs(fakeSuite, fakeBrowser, fakeResult).calledOnce)
+      }
+    )
 
     it('should do nothing if result.success is true', function () {
       fakeResult.success = true
@@ -269,6 +272,6 @@ describe('data/store.js - test suite', function () {
   })
 })
 
-function FakeClass (name) {
+function FakeClass(name) {
   this.name = name
 }

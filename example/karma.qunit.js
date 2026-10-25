@@ -1,10 +1,7 @@
-module.exports = function (config) {
+export default function (config) {
   config.set({
     frameworks: ['qunit'],
-    files: [
-      'src/**/*.js',
-      'test/qunit/**/*.js'
-    ],
+    files: ['src/**/*.js', 'test/qunit/**/*.js'],
     reporters: ['brief'],
     briefReporter: {
       omitExternalStackFrames: true,

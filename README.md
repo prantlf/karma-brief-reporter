@@ -73,7 +73,7 @@ If you want to suppress various output parts, flip the corresponding `suppress*`
 
 ```js
 // karma.conf.js
-module.exports = function(config) {
+export default function (config) {
   config.set({
     // Choose the reporter
     reporters: ['brief'],
@@ -107,8 +107,8 @@ module.exports = function(config) {
       // integration environment.
       renderOnRunCompleteOnly: true // default is false
     }
-  });
-};
+  })
+}
 ```
 
 Notes
@@ -117,18 +117,18 @@ Notes
 **For [Grunt] users:** if you use this reporter with the [grunt-karma] task executed via the [grunt-subgrunt] task, do not run `grunt-karma` tasks in parallel. Progress of multiple tests will be written together and appear as a garbage more than usual, because the brief progress is rewritten on a single line using a special cursor movement character. Do not let `grunt-subgrunt` scale on the available CPU count:
 
 ```js
-  subgrunt: {
-    options: {
-      // Do not run subtasks concurrently on multiple CPUs.
-      limit: 1
-    }
+subgrunt: {
+  options: {
+    // Do not run subtasks concurrently on multiple CPUs.
+    limit: 1
   }
+}
 ```
 
 Contributing
 ------------
 
-In lieu of a formal styleguide, take care to maintain the existing coding style.  Add unit tests for any new or changed functionality. Lint and test your code using the npm script commands.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using the npm script commands.
 
 License
 -------

@@ -1,4 +1,5 @@
-function countOccurrences (haystack, needle) { // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+function countOccurrences(haystack, needle) {
   if (haystack === 'one two three') {
     return 0
   }

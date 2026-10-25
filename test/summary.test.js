@@ -13,7 +13,7 @@ const assert = chai.assert
 const eq = assert.equal
 const ok = assert.ok
 
-function baseReporterDecorator () {}
+function baseReporterDecorator() {}
 
 describe('brief.js test suite', function () {
   let brief
@@ -40,9 +40,7 @@ describe('brief.js test suite', function () {
       getInstance: sinon.stub()
     }
 
-    storeFake
-      .getInstance
-      .returns(storeInstanceFake)
+    storeFake.getInstance.returns(storeInstanceFake)
 
     typesFake = {
       setErrorFormatterMethod: sinon.spy(),
@@ -386,7 +384,7 @@ describe('brief.js test suite', function () {
     })
 
     it('should call the expected methods when browserErrors is not empty', function () {
-      brief.browserErrors.push({ browser: 'browser', error: 'I\'m an error' })
+      brief.browserErrors.push({ browser: 'browser', error: "I'm an error" })
       brief.onRunComplete()
       ok(printersFake.printRuntimeErrors.calledWithExactly(['browser'], brief.browserErrors))
     })

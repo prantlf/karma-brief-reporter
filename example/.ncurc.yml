@@ -1,0 +1,3 @@
+reject:
+  - chai
+  - jasmine-core

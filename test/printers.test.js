@@ -48,45 +48,56 @@ describe('printers.js test suite', function () {
       writeFake = sinon.stub()
       writeFake.returnsArg(0)
 
-      runtimeErrors = [{
-        browser: {
-          name: 'browser1'
+      runtimeErrors = [
+        {
+          browser: {
+            name: 'browser1'
+          },
+          error: 'error1'
         },
-        error: 'error1'
-      }, {
-        browser: {
-          name: 'browser2'
+        {
+          browser: {
+            name: 'browser2'
+          },
+          error: {
+            message: 'error2'
+          }
         },
-        error: {
-          message: 'error2'
+        {
+          browser: {
+            name: 'browser3'
+          },
+          error: {
+            code: 'error3'
+          }
         }
-      }, {
-        browser: {
-          name: 'browser3'
-        },
-        error: {
-          code: 'error3'
-        }
-      }]
+      ]
 
-      out = runtimeErrors[0].browser.name + ',' +
-            '\n,' +
-            '\n,' +
-            runtimeErrors[0].error + ',' +
-            '\n,' +
-            '\n,' +
-            runtimeErrors[1].browser.name + ',' +
-            '\n,' +
-            '\n,' +
-            runtimeErrors[1].error.message + ',' +
-            '\n,' +
-            '\n,' +
-            runtimeErrors[2].browser.name + ',' +
-            '\n,' +
-            '\n,' +
-            JSON.stringify(runtimeErrors[2].error, undefined, 2) + ',' +
-            '\n,' +
-            '\n'
+      out =
+        runtimeErrors[0].browser.name +
+        ',' +
+        '\n,' +
+        '\n,' +
+        runtimeErrors[0].error +
+        ',' +
+        '\n,' +
+        '\n,' +
+        runtimeErrors[1].browser.name +
+        ',' +
+        '\n,' +
+        '\n,' +
+        runtimeErrors[1].error.message +
+        ',' +
+        '\n,' +
+        '\n,' +
+        runtimeErrors[2].browser.name +
+        ',' +
+        '\n,' +
+        '\n,' +
+        JSON.stringify(runtimeErrors[2].error, undefined, 2) +
+        ',' +
+        '\n,' +
+        '\n'
 
       out = out.split(',')
 
@@ -119,7 +130,11 @@ describe('printers.js test suite', function () {
       ok(clcFake.red.getCall(2).calledWithExactly(runtimeErrors[1].browser.name))
       ok(clcFake.red.getCall(3).calledWithExactly(runtimeErrors[1].error.message))
       ok(clcFake.red.getCall(4).calledWithExactly(runtimeErrors[2].browser.name))
-      ok(clcFake.red.getCall(5).calledWithExactly(JSON.stringify(runtimeErrors[2].error, undefined, 2)))
+      ok(
+        clcFake.red
+          .getCall(5)
+          .calledWithExactly(JSON.stringify(runtimeErrors[2].error, undefined, 2))
+      )
     })
   })
 
@@ -169,10 +184,18 @@ describe('printers.js test suite', function () {
       }
 
       clcFake.move.right.returns(tab)
-      clcFake.yellow.withArgs(stats.total.toString().padStart(5, ' ') + ' total  ').returns('yellow>' + stats.total)
-      clcFake.green.withArgs(stats.success.toString().padStart(5, ' ') + ' passed').returns('green>' + stats.success)
-      clcFake.red.withArgs(stats.failed.toString().padStart(5, ' ') + ' failed').returns('red>' + stats.failed)
-      clcFake.cyan.withArgs(stats.skipped.toString().padStart(5, ' ') + ' skipped').returns('cyan>' + stats.skipped)
+      clcFake.yellow
+        .withArgs(stats.total.toString().padStart(5, ' ') + ' total  ')
+        .returns('yellow>' + stats.total)
+      clcFake.green
+        .withArgs(stats.success.toString().padStart(5, ' ') + ' passed')
+        .returns('green>' + stats.success)
+      clcFake.red
+        .withArgs(stats.failed.toString().padStart(5, ' ') + ' failed')
+        .returns('red>' + stats.failed)
+      clcFake.cyan
+        .withArgs(stats.skipped.toString().padStart(5, ' ') + ' skipped')
+        .returns('cyan>' + stats.skipped)
 
       printers.__set__('write', writeFake)
 

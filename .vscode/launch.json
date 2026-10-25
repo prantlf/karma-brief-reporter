@@ -6,9 +6,7 @@
       "request": "launch",
       "name": "test",
       "program": "${workspaceFolder}/example/node_modules/mocha/bin/_mocha",
-      "args": [
-        "test/*"
-      ]
+      "args": ["test/*"]
     },
     {
       "type": "chrome",
@@ -27,13 +25,7 @@
       "name": "karma:mocha",
       "program": "${workspaceFolder}/example/node_modules/karma/bin/karma",
       "cwd": "${workspaceFolder}/example",
-      "args": [
-        "start",
-        "karma.mocha.js",
-        "--single-run",
-        "--browsers",
-        "ChromeHeadless"
-      ]
+      "args": ["start", "karma.mocha.js", "--single-run", "--browsers", "ChromeHeadless"]
     },
     {
       "type": "node",
@@ -41,13 +33,7 @@
       "name": "karma:jasmine",
       "program": "${workspaceFolder}/example/node_modules/karma/bin/karma",
       "cwd": "${workspaceFolder}/example",
-      "args": [
-        "start",
-        "karma.jasmine.js",
-        "--single-run",
-        "--browsers",
-        "ChromeHeadless"
-      ]
+      "args": ["start", "karma.jasmine.js", "--single-run", "--browsers", "ChromeHeadless"]
     },
     {
       "type": "node",
@@ -55,13 +41,7 @@
       "name": "karma:qunit",
       "program": "${workspaceFolder}/example/node_modules/karma/bin/karma",
       "cwd": "${workspaceFolder}/example",
-      "args": [
-        "start",
-        "karma.qunit.js",
-        "--single-run",
-        "--browsers",
-        "ChromeHeadless"
-      ]
+      "args": ["start", "karma.qunit.js", "--single-run", "--browsers", "ChromeHeadless"]
     }
   ]
 }
